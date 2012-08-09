@@ -1,0 +1,6 @@
+[submodule "modules/rbenv"]
+	path = modules/rbenv
+	url = https://github.com/alup/puppet-rbenv
+[submodule "modules/postfix"]
+	path = modules/postfix
+	url = https://github.com/camptocamp/puppet-postfix
