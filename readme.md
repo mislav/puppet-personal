@@ -59,5 +59,9 @@ I test these recipes locally using Vagrant.
 * Is there a better way to run recipes on my remote box (currently rsync)
   without resorting to master-client model?
 * How can I automate provisioning a new box that can't run puppet yet (no Ruby,
-  rubygems, puppet gem installed); using old school shell scripts that I run via
-  ssh?
+  rubygems, or puppet gem installed); using old school shell scripts that I run
+  via ssh?
+* rbenv module currently manages bashrc; is there a way to hook into
+  `rbenv::install` for zshrc and avoid doing [zsh support
+  manually](https://github.com/mislav/puppet-personal/blob/55c3b61/manifests/centos62-64.pp#L10-17)?
+  Or should I contribute to upstream rbenv module?
