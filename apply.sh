@@ -1,8 +1,11 @@
 # quick 'n' dirty script to push recipes and execute puppet to my server
+dest=root@mislav
 
-self="$(basename "$0")"
-rsync -vtr --exclude .git/ --exclude "/${self}" manifests modules root@mislav:puppet
-ssh root@mislav '\
-  cd puppet && \
-  puppet apply --modulepath=modules --no-report \
-    manifests/centos62-64.pp'
+rsync -tr --exclude .git/ --exclude tests/ --exclude spec/ \
+  init.sh manifests modules ${dest}:puppet
+
+ssh $dest "
+  cd puppet
+  sh ./init.sh
+  puppet apply --no-report --modulepath=modules manifests/centos62-64.pp
+"
