@@ -21,6 +21,7 @@ right tool for the job for this.
 * postgresql, redis, mongo
 * memcached
 * nginx vhosts + Passenger, running multiple Ruby apps
+* cron jobs for said apps
 * postfix + dovecot, for personal email
 
 My target is CentOS 6.2 for now, but would like to support Ubuntu too so these
