@@ -50,15 +50,6 @@ I test these recipes locally using Vagrant.
     but it doesn't shed any light to this issue. The files in
     `{modulepath}/{module}/lib/pupppet/provider/` should be autoloaded, IMO.
 
-2.  Using postfix module doesn't work:
-
-        notice: /Stage[main]/Postfix/Service[postfix]:
-          Dependency Augeas[set postfix 'myorigin' to 'li503-173.members.linode.com']
-          has failures: true
-
-    It seems that it needs Augeas. This keeps getting mentioned in Puppet world,
-    but even after briefly reading about this I'm no smarter as to what it is.
-
 ## The questions that I have
 
 * How should I organize my manifests into multiple files once my setup grows?
