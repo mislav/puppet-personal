@@ -7,5 +7,6 @@ rsync -tr --exclude .git/ --exclude tests/ --exclude spec/ \
 ssh $dest "
   cd puppet
   sh ./init.sh
-  puppet apply --no-report --modulepath=modules manifests/centos62-64.pp
+  RUBYLIB=modules/rbenv/lib puppet apply --pluginsync --no-report \
+    --modulepath=modules manifests/centos62-64.pp
 "

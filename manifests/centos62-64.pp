@@ -6,18 +6,14 @@ rbenv::compile { '1.9.3-p194':
   user => 'deploy',
   home => '/home/deploy'
 }
-rbenv::gem { 'bundler':
-  user => 'deploy',
-  ruby => '1.9.3-p194'
-}
 
 exec { 'rbenv::zsh':
-  command => "echo \"export PATH=$(pwd)/.rbenv/bin:\\\$PATH\neval \\\"\\\$(rbenv init -)\\\"\" >> .zshrc",
+  command => 'echo "source $(pwd)/.rbenvrc" >> .zshrc',
   user    => 'deploy',
   cwd     => '/home/deploy',
   path    => ['/bin', '/usr/bin', '/usr/sbin'],
-  unless  => "grep 'rbenv init -' /home/deploy/.zshrc 2>/dev/null",
-  require => [ Class['rbenv'], Package['zsh'] ]
+  unless  => "grep rbenvrc /home/deploy/.zshrc 2>/dev/null",
+  require => [ Rbenv::Install['deploy'], Package['zsh'] ]
 }
 
 package { 'zsh':

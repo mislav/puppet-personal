@@ -39,19 +39,22 @@ I test these recipes locally using Vagrant.
 
 ## The problems that I have
 
-1.  Using rbenv module doesn't work:
+1.  Using rbenv module doesn't work with `puppet apply`:
 
         Could not autoload rbenvgem:
           no such file to load -- puppet/provider/rbenvgem
           at /root/puppet/modules/rbenv/manifests/gem.pp:22
 
-    I've read [Plugins in
-    modules](http://docs.puppetlabs.com/guides/plugins_in_modules.html) doc page,
-    but it doesn't shed any light to this issue. The files in
-    `{modulepath}/{module}/lib/pupppet/provider/` should be autoloaded, IMO.
+    AFAIK, the files in `{modulepath}/{module}/lib/pupppet/provider/` should be
+    autoloaded, but are not. **I've hacked this by setting**
+    `RUBYLIB=modules/rbenv/lib`.
+
+    Seems like [pluginsync won't work with
+    apply](https://github.com/puppetlabs/puppet/pull/427) until v3.0?
 
 ## The questions that I have
 
+* Do I really have to manually manage RUBYLIB for plugins to work?
 * How should I organize my manifests into multiple files once my setup grows?
 * Is there a better way to run recipes on my remote box (currently rsync)
   without resorting to master-client model?
