@@ -1,5 +1,4 @@
 rbenv::install { 'deploy':
-  group => 'deploy',
   home  => '/home/deploy'
 }
 rbenv::compile { '1.9.3-p194':

@@ -45,5 +45,6 @@ Vagrant::Config.run do |config|
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "centos62-64.pp"
     puppet.module_path    = "modules"
+    puppet.options        = %w[ --libdir=\\$modulepath/rbenv/lib ]
   end
 end
