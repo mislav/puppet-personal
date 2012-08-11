@@ -13,7 +13,7 @@ exist() {
 if ! exist puppet; then
   if ! exist ruby; then
     if exist yum; then
-      yum install --assumeyes ruby ruby-devel
+      yum install --debuglevel=0 --assumeyes ruby ruby-devel
     else
       apt-get update
       apt-get -y install irb libopenssl-ruby libreadline-ruby rdoc ri ruby ruby-dev
@@ -34,7 +34,7 @@ fi
 if ! ruby -rubygems -e 'require "augeas"' 2>/dev/null
 then
   if exist yum; then
-    yum install --assumeyes augeas-devel
+    yum install --debuglevel=0 --assumeyes augeas-devel
     gem install ruby-augeas
   else
     apt-get -y install augeas-lenses augeas-tools libaugeas-ruby
