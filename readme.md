@@ -3,10 +3,10 @@
 I'm no sysadmin expert but I've set up a personal server—usually
 Debian-flavored—countless times manually. Time to automatize this. I would want
 to be able to provision a single box quickly for personal use, but I want to do
-it via recipes that I can reply against another box whenever I want.
+it via recipes that I or anyone else can easily re-apply against another box.
 
-I've brushed with Chef, but getting disillusioned with its steep learning curve,
-I've set out to try Puppet. Turns out, it's not any easier.
+I've brushed with Chef, but after getting disillusioned with its steep learning
+curve, I've set out to try Puppet. Turns out, it's not any easier.
 
 ![I have no idea what I'm doing](http://i0.kym-cdn.com/photos/images/newsfeed/000/234/142/196.jpg)
 
@@ -19,6 +19,7 @@ right tool for the job for this.
 * git
 * rbenv
 * postgresql, redis, mongo
+* elasticsearch
 * memcached
 * nginx vhosts + Passenger, running multiple Ruby apps
 * cron jobs for said apps
@@ -35,7 +36,15 @@ apply" there (see `apply.sh`).
 
 I'm using 2 puppet modules found on GitHub as git submodules: "rbenv" and "postfix".
 
-I test these recipes locally using Vagrant.
+## Testing locally
+
+I test what I have right now locally using Vagrant.
+
+    $ vagrant up
+
+To reprovision after making changes:
+
+    $ vagrant provision
 
 ## The problems that I have
 
