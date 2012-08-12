@@ -5,8 +5,8 @@ Debian-flavored—countless times manually. Time to automatize this. I would wan
 to be able to provision a single box quickly for personal use, but I want to do
 it via recipes that I or anyone else can easily re-apply against another box.
 
-I've brushed with Chef, but after getting disillusioned with its steep learning
-curve, I've set out to try Puppet. Turns out, it's not any easier.
+I've brushed with Chef, but after getting disillusioned with its complexity,
+I've set out to try Puppet. Turns out, it's not any easier.
 
 ![I have no idea what I'm doing](http://i0.kym-cdn.com/photos/images/newsfeed/000/234/142/196.jpg)
 
